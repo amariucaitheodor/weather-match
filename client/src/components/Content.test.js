@@ -36,7 +36,7 @@ it("renders 2 cities and their correct content", () => {
 act(() => {
     render(<Content filteredCities={fakeCityList}/>, container);
   });
-  expect(container.textContent).toBe("BucharestCountry: ROWeather: Temperature: 34 °CHumidity: 31 %Wind speed: 3 m/sDate: 12-01-1998Time: 12:00New YorkCountry: USWeather: Temperature: -12 °CHumidity: 0 %Wind speed: 6 m/sDate: 12-01-1997Time: 12:00NaN-NaN of ");
+  expect(container.textContent).toBe("BucharestCountry: ROWeather: Temperature: 34 °CHumidity: 31 %Wind speed: 3 m/sDate: 12-01-1998Time: 12:00 UTCNew YorkCountry: USWeather: Temperature: -12 °CHumidity: 0 %Wind speed: 6 m/sDate: 12-01-1997Time: 12:00 UTCNaN-NaN of ");
   expect(container.children[0].children[1].childElementCount).toBe(2);
 });
 
