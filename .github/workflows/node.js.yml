@@ -23,7 +23,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+
     - name: Use Node.js ${{ matrix.node-version }}
+      working-directory: ${{env.working-directory}}
       uses: actions/setup-node@v2
       with:
         node-version: ${{ matrix.node-version }}
@@ -41,10 +43,8 @@ jobs:
       uses: crazy-max/ghaction-github-pages@v2.5.0
       with:
         domain: amariucaitheodor.github.io
-        # Build directory to deploy
-        build_dir: ${{env.working-directory}}
+        build_dir: ${{env.working-directory}} # Build directory to deploy
         author: Theodor Amariucai <amariucaitheodor@protonmail.com> # The author name and email address
         commit_message: Automatic gh-pages deployment
         fqdn: true # Write the given domain name to the CNAME file
-        # Enable verbose output
-        verbose: true
+        verbose: true # Enable verbose output
