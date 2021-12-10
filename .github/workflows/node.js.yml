@@ -11,6 +11,8 @@ on:
 
 jobs:
   build:
+    env:
+      working-directory: ./client
 
     runs-on: ubuntu-latest
 
@@ -26,15 +28,21 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm ci
-    - run: npm test
+        
+    - name: CI
+      working-directory: ${{env.working-directory}}
+      run: npm ci
+          
+    - name: Test
+      working-directory: ${{env.working-directory}}
+      run: npm test
     
     - name: GitHub Pages
       uses: crazy-max/ghaction-github-pages@v2.5.0
       with:
         domain: amariucaitheodor.github.io
         # Build directory to deploy
-        build_dir: client
+        build_dir: ${{env.working-directory}}
         author: Theodor Amariucai <amariucaitheodor@protonmail.com> # The author name and email address
         commit_message: Automatic gh-pages deployment
         fqdn: true # Write the given domain name to the CNAME file
