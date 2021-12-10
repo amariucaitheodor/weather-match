@@ -48,3 +48,5 @@ jobs:
         commit_message: Automatic gh-pages deployment
         fqdn: true # Write the given domain name to the CNAME file
         verbose: true # Enable verbose output
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
