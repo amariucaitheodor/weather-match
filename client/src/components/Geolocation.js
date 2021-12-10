@@ -11,7 +11,7 @@ let cancelClosestCityCall;
 
 export default function Geolocation(props) {
     const theme = useTheme();
-    const debounceHandleClick = React.useCallback(debounce(650, handleClick), []);
+    const debounceHandleClick = React.useCallback(debounce(650, handleClick), []); // eslint-disable-line react-hooks/exhaustive-deps
 
     const StyledGeoButton = styled(Button)({
         background: `linear-gradient(45deg, ${theme.palette.primary.dark} 30%, ${theme.palette.primary.main} 90%)`,
