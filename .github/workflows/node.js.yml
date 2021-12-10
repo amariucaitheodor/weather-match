@@ -42,7 +42,6 @@ jobs:
     - name: GitHub Pages
       uses: crazy-max/ghaction-github-pages@v2.5.0
       with:
-        domain: amariucaitheodor.github.io
         build_dir: ${{env.working-directory}} # Build directory to deploy
         author: Theodor Amariucai <amariucaitheodor@protonmail.com> # The author name and email address
         commit_message: Automatic gh-pages deployment
